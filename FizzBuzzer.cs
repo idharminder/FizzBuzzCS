@@ -6,6 +6,17 @@ namespace FizzBuzz
         {
             List<string> msgList = new();
 
+            FizzLister(n, msgList);
+
+            if (msgList.Count == 0)
+            {
+                msgList.Add(n.ToString());
+            }
+            return String.Join("", msgList);
+        }
+
+        private static void FizzLister(int n, List<string> msgList)
+        {
             if (IsDivisibleBy(n, 3))
             {
                 msgList.Add("Fizz");
@@ -31,12 +42,8 @@ namespace FizzBuzz
             {
                 msgList.Reverse();
             }
-            if (msgList.Count == 0)
-            {
-                msgList.Add(n.ToString());
-            }
-            return String.Join("", msgList);
         }
+
         private static bool IsDivisibleBy(int num, int denom)
         {
             return num % denom == 0;
